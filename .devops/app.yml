@@ -6,4 +6,3 @@ services:
     container_name: "app_finance_dio"
     ports:
       - 8080:8080
-    

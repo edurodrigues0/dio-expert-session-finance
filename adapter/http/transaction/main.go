@@ -19,6 +19,8 @@ type PostBody struct {
 
 var validate = validator.New()
 
+var transactions = transaction.Transactions{}
+
 func HandleCreateTransaction(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		utils.SendJSON(
@@ -83,18 +85,6 @@ func HandleGetTransactions(w http.ResponseWriter, r *http.Request) {
 			http.StatusMethodNotAllowed,
 		)
 		return
-	}
-
-	transactionID, _ := uuid.NewUUID()
-
-	var transactions = transaction.Transactions{
-		transaction.Transaction{
-			ID:        transactionID,
-			Title:     `Salary`,
-			Amount:    1200.00,
-			Type:      0,
-			CreatedAt: utils.StringToTime("2024-09-01T11:45:26"),
-		},
 	}
 
 	utils.SendJSON(
