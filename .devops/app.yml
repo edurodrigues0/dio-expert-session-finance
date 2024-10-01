@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  app:
+    image: edurodrigues0/finance
+    container_name: "app_finance_dio"
+    ports:
+      - 8080:8080
+    
